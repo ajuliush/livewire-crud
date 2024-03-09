@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\CreateCustomer;
+use App\Livewire\Customers;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +15,8 @@ use App\Livewire\CreateCustomer;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('customer/create',CreateCustomer::class);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/',CreateCustomer::class)->name('customer.create');
+Route::get('/customers',Customers::class)->name('customers');

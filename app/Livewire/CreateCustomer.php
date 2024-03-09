@@ -12,7 +12,7 @@ class CreateCustomer extends Component
     public $name = '';
     public $email = '';
     public $phone = '';
-    public $image = '';
+    // public $image = '';
     public function render()
     {
         return view('livewire.create-customer');
@@ -22,12 +22,14 @@ class CreateCustomer extends Component
             'name' => 'required|max:255',
             'email' => 'required|email|unique:customers|max:255',
             'phone' => 'required|unique:customers|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
              // Save the image to storage if it's provided
-             if ($this->image) {
-                $data['image'] = $this->image->store('images', 'public');
-            }
+            //  if ($this->image) {
+            //     $path = 'images'; // Directory name
+            //     \Storage::disk('public')->makeDirectory($path); // Create directory if not exists
+            //     $data['image'] = $this->image->store($path, 'public'); // Store image
+            // }
         Customer::create($data);
         $this->reset();
     }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\CreateCustomer;
 use App\Livewire\Customers;
+use App\Livewire\ViewCustomer;
+use App\Livewire\EditCustomer;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,5 @@ use App\Livewire\Customers;
 // });
 Route::get('/',CreateCustomer::class)->name('customer.create');
 Route::get('/customers',Customers::class)->name('customers');
+Route::get('/customer/{customer}',ViewCustomer::class)->name('customer.show');
+Route::get('/customer/{customer}/edit',EditCustomer::class)->name('customer.edit');

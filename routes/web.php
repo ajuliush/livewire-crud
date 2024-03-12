@@ -6,6 +6,7 @@ use App\Livewire\Customers;
 use App\Livewire\ViewCustomer;
 use App\Livewire\EditCustomer;
 use App\Livewire\Register;
+use App\Livewire\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,4 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/register',Register::class)->name('register');
+Route::get('/login',Login::class)->name('login');

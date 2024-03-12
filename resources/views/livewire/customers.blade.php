@@ -1,7 +1,14 @@
 <div>
-    <button wire:navigate href="/" class="btn btn-success btn-sm">Create</button>
+    <div class="row">
+        <div class="col-auto">
+            <button wire:navigate href="/" class="btn btn-success btn-sm">Create</button>
+        </div>
+        <div class="col-auto">
+            <input type="text" wire:model.live.debounce.500ms="search" class="form-control">
+        </div>
+    </div>
     <livewire:flash-message />
-    <table class=" table">
+    <table class=" table table-sm">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -32,4 +39,5 @@
             @endforeach
         </tbody>
     </table>
+    {{ $customers->links() }}
 </div>

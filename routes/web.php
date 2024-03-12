@@ -5,6 +5,7 @@ use App\Livewire\CreateCustomer;
 use App\Livewire\Customers;
 use App\Livewire\ViewCustomer;
 use App\Livewire\EditCustomer;
+use App\Livewire\Register;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,11 @@ use App\Livewire\EditCustomer;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/',CreateCustomer::class)->name('customer.create');
-Route::get('/customers',Customers::class)->name('customers');
-Route::get('/customer/{customer}',ViewCustomer::class)->name('customer.show');
-Route::get('/customer/{customer}/edit',EditCustomer::class)->name('customer.edit');
+Route::middleware('auth')->group(function () {
+    Route::get('/',CreateCustomer::class)->name('customer.create');
+    Route::get('/customers',Customers::class)->name('customers');
+    Route::get('/customer/{customer}',ViewCustomer::class)->name('customer.show');
+    Route::get('/customer/{customer}/edit',EditCustomer::class)->name('customer.edit');
+});
+
+Route::get('/register',Register::class)->name('register');

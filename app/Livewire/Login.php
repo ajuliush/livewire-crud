@@ -10,6 +10,14 @@ class Login extends Component
 {
     public $email;
     public $password;
+    public $useSavedCredentials;
+    public function updatedUseSavedCredentials()
+    {
+        if ($this->useSavedCredentials) {
+            $this->email = 'qatudi@mailinator.com';
+            $this->password = '123456789';
+        }
+    }
     public function render()
     {
         return view('livewire.login');
